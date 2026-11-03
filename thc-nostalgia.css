@@ -1,0 +1,241 @@
+/* Combined selectors with background-color: #270f36; color: #c2d903; */
+html body,
+nav.top-nav,
+th.torrent-search--list__poster-header,
+th.torrent-search--list__format-header,
+th.torrent-search--list__name-header,
+th.torrent-search--list__actions-header,
+th.torrent-search--list__ratings-header,
+th.torrent-search--list__size-header,
+th.torrent-search--list__seeders-header,
+th.torrent-search--list__leechers-header,
+th.torrent-search--list__completed-header,
+th.torrent-search--list__age-header,
+td.torrent-search--list__poster,
+td.torrent-search--list__format,
+td.torrent-search--list__overview,
+td.torrent-search--list__buttons,
+td.torrent-search--list__rating,
+td.torrent-search--list__size,
+td.torrent-search--list__seeders,
+td.torrent-search--list__leechers,
+td.torrent-search--list__completed,
+td.torrent-search--list__age {
+  background-color: #270f36;
+  color: #c2d903;
+}
+
+/* Combined selectors with background-color: #5d154c; color: #c2d903; */
+h2.panel__heading,
+span.panel__action-text {
+  background-color: #5d154c;
+  color: #c2d903;
+}
+
+/* Combined selectors with background-color: #5d154c; only */
+div.panel__actions,
+header.panel__header {
+  background-color: #5d154c;
+}
+
+/* Combined selectors with background-color: #2d163b; color: #c2d903; */
+input.form__text,
+input.quick-search__input,
+a.pagination__link,
+li.pagination__ellipsis,
+a.pagination__next,
+li.pagination__previous.pagination__previous--disabled,
+a.pagination__previous,
+li.pagination__next.pagination__next--disabled,
+ul.chatroom__messages,
+menu.panel__tabs,
+section.chatroom__whispers {
+  background-color: #2d163b;
+  color: #c2d903;
+}
+
+/* Combined selectors with background-color: #2d163b; only */
+search.compact-search.torrent-search__filters,
+select.form__select {
+  background-color: #2d163b;
+}
+
+/* Combined selectors with color: #c2d903; only */
+a.torrent-search--list__name,
+section.chatbox-message__content.bbcode-rendered,
+a.subforum-listing__link,
+a.subforum-listing__latest-link,
+a.subforum-listing__latest-post-link,
+a.subforum-listing__latest-author-link {
+  color: #c2d903;
+}
+
+/* Unique styles - kept separate */
+a.user-tag__link.fas.fa-eye.fa-float {
+  color: #5d6617;
+}
+
+li.pagination__current {
+  background-color: #2d163b;
+  color: #fff;
+}
+
+section.alert.special-event-alert {
+  background-color: #270f36;
+  color: #c2d903;
+}
+
+section.panelV2.torrent-search__results,
+nav.pagination {
+  background-color: #5d154c;
+}
+
+article.subforum-listing {
+  background-color: #250f3b;
+}
+
+span.top-nav__site-logo {
+  background: url("https://files.catbox.moe/981di2.png") no-repeat center;
+  background-size: contain;
+  text-indent: -9999px;
+  width: 200px;
+  height: 50px;
+  display: inline-block;
+}
+
+i.fad.fa-comments.subforum-listing__icon {
+  background: url("https://i.postimg.cc/3wLFKTWr/toc-old.png") no-repeat center;
+  background-size: contain;
+  text-indent: -9999px;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
+form.form.chatroom__new-message {
+  background-color: #5d154c;
+}
+
+article.user-stat-card {
+  background-color: #5d154c;
+}
+
+div.panel__body {
+  background-color: #250f3b;
+}
+
+div.panel__action {
+  background-color: #5d154c;
+  color: #c2d903;
+}
+
+article.topic-listing.topic-listing--unread {
+  background-color: #250f3b;
+  color: #c2d903;
+}
+
+article.topic-listing.topic-listing--read {
+  background-color: #250f3b;
+}
+
+nav.secondary-nav {
+  background-color: #5d154c;
+  color: #c2d903;
+}
+
+i.fad.fa-comments.topic-listing__icon {
+  background: url("https://i.postimg.cc/3wLFKTWr/toc-old.png") no-repeat center;
+  background-size: contain;
+  text-indent: -9999px;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+}
+
+h4.panel__heading {
+  background-color: #5d154c;
+  color: #c2d903;
+}
+
+a.form__button.form__button--filled.form__button--centered {
+  color: #c2d903;
+  background-color: #5d154c;
+}
+
+a.breadcrumb__link {
+  color: #c2d903;
+}
+
+li.breadcrumb--active {
+  color: #fff;
+}
+
+aside.post__aside {
+  background-color: #2d163b;
+}
+
+header.post__header {
+  background-color: #2d163b;
+}
+
+form.post__tip {
+  background-color: #2d163b;
+}
+
+button.votes__like {
+  background-color: #5d154c;
+}
+
+button.votes__dislike {
+  background-color: #2d163b;
+}
+
+a.post__permalink {
+  background-color: #2d163b;
+}
+
+div.post__content.bbcode-rendered {
+  background-color: #2d163b;
+}
+
+aside.comment__aside {
+  background-color: #2d163b;
+}
+
+div.comment__content.bbcode-rendered {
+  background-color: #2d163b;
+}
+
+header.comment__header {
+  background-color: #2d163b;
+}
+
+article.comment {
+  background-color: #2d163b;
+}
+
+footer.post__footer {
+  background-color: #270f36;
+  color: #c2d903;
+}
+
+tbody tr td {
+  background-color: #2d163b;
+}
+
+thead tr th {
+  background-color: #2d163b;
+}
+
+p.meta__description {
+  font-size: 22px;
+  color: #c2d903;
+}
+
+div.chatbox-message__reply-author {
+  background-color: #4f4f4f;
+}
+
+div.chatbox-message__reply-text {
+  background-color: #4f4f4f;
+}
