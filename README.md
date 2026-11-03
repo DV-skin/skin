@@ -22,11 +22,15 @@ Theme: **Dark red**
 
 ## THC Nostalgia
 
-Deep purple and plum panels with acid-green text, a custom site logo and retro forum icons.
+For the nostalgics: the same colours as the old THC. Deep purple and plum panels with acid-green text, a custom site logo and retro forum icons.
 
 ```
 https://cdn.jsdelivr.net/gh/DV-skin/skin@thc-nostalgia-v1.0/thc-nostalgia.css
 ```
+
+Theme: **Material design 3 dark**
+
+Tweaks are welcome, so feel free to build on it.
 
 ## Updates
 
