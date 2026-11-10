@@ -20,6 +20,16 @@ https://cdn.jsdelivr.net/gh/DV-skin/skin@v1.0/crimson-noir.css
 
 Theme: **Dark red**
 
+### Crimson Noir (clear artwork)
+
+The same skin, but the TMDB header art on torrent pages shows unblurred, with a soft shadow behind the text to keep it readable.
+
+```
+https://cdn.jsdelivr.net/gh/DV-skin/skin@crimson-noir-clear-v1.0/crimson-noir-clear.css
+```
+
+Theme: **Dark red**
+
 ## THC Nostalgia
 
 By **scaryi68**. For the nostalgics: the same colours as the old THC. Deep purple and plum panels with acid-green text, a custom site logo and retro forum icons.

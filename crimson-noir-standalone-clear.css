@@ -1,0 +1,1785 @@
+/*
+ * Crimson Noir (standalone, clear artwork): a built-in theme for DreadVault (UNIT3D)
+ * Same as the standalone build, but TMDB header art on torrent pages is not blurred.
+ * Load this file on its own, after main.scss. It already includes the
+ * Galactic and Dark red base themes, so nothing else needs loading.
+ */
+
+/* Inter */
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7SUc.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7SUc.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7SUc.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7SUc.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7SUc.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Base: Galactic */
+:root {
+  --text-color: #cccccc;
+  --color-dark-magenta: hsl(300, 10%, 25%);
+  --color-dark-green: hsl(120, 10%, 25%);
+  --color-dark-blue: hsl(240, 10%, 30%);
+  --color-dark-red: hsl(0, 10%, 25%);
+  --color-red: hsl(0, 20%, 40%);
+  --color-light-red: hsl(0, 20%, 50%);
+  --color-green: hsl(120, 20%, 40%);
+  --color-light-green: hsl(120, 20%, 50%);
+  --color-yellow: hsl(30, 20%, 40%);
+  --color-light-yellow: hsl(30, 20%, 50%);
+  --color-magenta: hsl(300, 20%, 40%);
+  --color-light-magenta: hsl(300, 20%, 50%);
+  --color-dark-purple: hsl(240, 20%, 30%);
+  --color-purple: hsl(240, 20%, 40%);
+  --color-light-purple: hsl(240, 20%, 50%);
+  --color-blue: hsl(205, 35%, 50%);
+  --color-light-blue: hsl(205, 35%, 60%);
+  --color-bright-white: hsl(0, 0%, 100%);
+  --color-light-orange: hsl(20, 20%, 50%);
+  --message-bubble-bg: #222;
+  --message-bubble-fg: currentColor;
+  --message-bubble-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+      0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  --message-bubble-border-radius: 20px;
+  --message-bubble-border: none;
+  --message-bubble-avatar-border-radius: 50%;
+  --button-filled-bg: var(--color-green);
+  --achievement-fg: inherit;
+  --achievement-bg: #2c2c2c;
+  --achievement-box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2),
+      0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  --achievement-progress-bg: #8fbcbb;
+  --alert-bg: #292929;
+  --alert-fg: #aaa;
+  --alert-gap-color: #444;
+  --alert-gap-width: 1px;
+  --article-card-bg: #2c2c2c;
+  --article-card-fg: #aaa;
+  --article-card-head-fg: #aaa;
+  --article-card-time-fg: #aaa;
+  --article-box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2),
+      0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  --bbcode-input-header-bg: #272727;
+  --bbcode-input-body-bg: #272727;
+  --bbcode-input-border: 1px solid #555;
+  --bbcode-input-border-radius: 5px;
+  --bbcode-rendered-fg-default: #c9d1d9;
+  --bbcode-rendered-fg-muted: #8b949e;
+  --bbcode-rendered-fg-subtle: #484f58;
+  --bbcode-rendered-canvas-default: transparent;
+  --bbcode-rendered-canvas-subtle: #313131;
+  --bbcode-rendered-border-default: #3c3d3d;
+  --bbcode-rendered-border-muted: #464749;
+  --bbcode-rendered-neutral-muted: #46484b66;
+  --bbcode-rendered-accent-fg: #58a6ff;
+  --bbcode-rendered-accent-emphasis: #2260be;
+  --bbcode-rendered-attention-subtle: #7289da;
+  --bbcode-rendered-danger-fg: #ff141ccc;
+  --bbcode-rendered-quote-bg: #6662;
+  --bbcode-rendered-quote-border: var(--color-green);
+  --body-bg: #232323;
+  --body-fg: var(--text-color);
+  --breadcrumb-fg: #777;
+  --breadcrumb-active-fg: #aaa;
+  --breadcrumb-hover-fg: #ddd;
+  --breadcrumb-inactive-text-decoration: none;
+  --button-filled-bg: var(--color-green);
+  --button-filled-border: none;
+  --button-filled-border-radius: 9999px;
+  --button-filled-fg: white;
+  --button-outlined-bg: inherit;
+  --button-outlined-border: 1px solid #555;
+  --button-outlined-border-radius: 9999px;
+  --button-outlined-fg: currentColor;
+  --button-text-bg: inherit;
+  --button-text-border: none;
+  --button-text-border-radius: 5px;
+  --button-text-fg: currentColor;
+  --chatbox-message-bg: #363636;
+  --chatbox-button-fg: #666;
+  --chatbox-button-hover-fg: #888;
+  --chatbox-users-bg: #2c2c2c;
+  --chatbox-tab-delete-fg: #c22222;
+  --chatbox-tab-delete-bg: #444;
+  --compact-search-bg: #272727;
+  --compact-search-box-shadow: none;
+  --compact-search-border-radius: 8px;
+  --compact-search-fg: var(--text-color);
+  --compact-search-padding: 5px;
+  --comparison-divider-fg: #fff;
+  --comparison-button-fg: #fff;
+  --data-table-border-radius: 0;
+  --data-table-fg: var(--text-color);
+  --data-table-th-bg: #2c2c2c;
+  --data-table-thead-border: none;
+  --data-table-tr-border: 1px solid #333;
+  --data-table-tr-even-bg: #272727;
+  --data-table-tr-hover-bg: #2c2c2c;
+  --data-table-tr-odd-bg: #272727;
+  --data-table-tfoot-border: none;
+  --dialog-bg: #272727;
+  --dialog-border: none;
+  --dialog-border-radius: 10px;
+  --dialog-box-shadow: none;
+  --dialog-fg: var(--text-color);
+  --dialog-head-bg: #1c1c1c;
+  --dialog-head-fg: #fff;
+  --donation-border-color: #1c1c1c;
+  --donation-box-shadow-color: #1c1c1c;
+  --donation-primary-text-color: #d2d2d2;
+  --donation-secondary-text-color: #aaaaaa;
+  --donation-background-color: #1c1c1c;
+  --donation-price-days-color: orange;
+  --donation-chart-daily-bg: rgba(75, 192, 192, 0.2);
+  --donation-chart-daily-border: rgba(75, 192, 192, 1);
+  --donation-chart-monthly-bg: rgba(153, 102, 255, 0.2);
+  --donation-chart-monthly-border: rgba(153, 102, 255, 1);
+  --fieldset-bg: inherit;
+  --fieldset-fg: #bbb;
+  --fieldset-border-radius: 5px;
+  --fieldset-border: 1px solid #555;
+  --footer-bg: #0003;
+  --footer-hr-fg: #222;
+  --icon-button-bg: inherit;
+  --icon-button-border: none;
+  --icon-button-border-radius: 9999px;
+  --icon-button-fg: currentColor;
+  --icon-button-filled-bg: var(--color-green);
+  --icon-button-filled-fg: white;
+  --icon-button-filled-border: none;
+  --input-text-border: 1px solid #555;
+  --input-text-border-active: 2px solid #2195f3;
+  --input-text-border-error: 1px solid #ba1b1b;
+  --input-text-border-hover: 2px solid #999;
+  --input-text-border-radius: 5px;
+  --input-text-fg: #bbb;
+  --input-text-padding: 12px;
+  --input-text-padding-active: 11px;
+  --input-text-padding-hover: 11px;
+  --key-value-border-radius: 0;
+  --key-value-even-bg: #272727;
+  --key-value-fg: var(--text-color);
+  --key-value-odd-bg: #272727;
+  --key-value-padding: 10px;
+  --label-bg: #e2e2e2;
+  --label-fg: #555;
+  --label-fg-active: #2195f3;
+  --label-fg-error: #ba1b1b;
+  --label-fg-hover: #999;
+  --legend-fg: #555;
+  --legend-bg: transparent;
+  --legend-border: none;
+  --legend-border-radius: 0;
+  --mediahub-card-bg: #1a1a1a;
+  --mediahub-card-fg: #ddd;
+  --mediahub-card-hover-fg: #fff;
+  --mediahub-card-border: none;
+  --mediahub-card-border-radius: 0;
+  --mediahub-card-box-shadow: none;
+  --meta-backdrop-filter: brightness(30%) blur(100px);
+  --meta-dropdown-backdrop-filter: brightness(2) blur(10px);
+  --meta-dropdown-bg: #4449;
+  --meta-dropdown-backdrop-filter-hover: brightness(2) blur(10px);
+  --meta-dropdown-hover-bg: rgba(255, 255, 255, 0.1);
+  --meta-dropdown-fg: #bbb;
+  --meta-dropdown-hover-fg: #ccc;
+  --meta-description-fg: #ddd;
+  --meta-id-tag-fg: #eee;
+  --meta-id-tag-bg: transparent;
+  --meta-id-tag-hover-fg: #fff;
+  --meta-id-tag-hover-bg: rgba(255, 255, 255, 0.1);
+  --meta-chips-heading-fg: #bbb;
+  --meta-chip-icon-fg: #1f1f1f;
+  --meta-chip-icon-hover-bg: #bbb;
+  --meta-chip-icon-bg: #cdcdcd;
+  --meta-chip-name-fg: #e2e2e2;
+  --meta-chip-value-fg: #aaa;
+  --meta-chip-value-hover-fg: #ccc;
+  --meta-chip-backdrop-filter-hover: brightness(2) blur(10px);
+  --meta-chip-hover-bg: rgba(255, 255, 255, 0.1);
+  --meta-popup-bg: #1a1a1a;
+  --meta-popup-fg: #7f8c8d;
+  --meter-fg: #333;
+  --meter-bg: #505050;
+  --notification-read: transparent;
+  --notification-unread: var(--color-green);
+  --option-bg: #303030;
+  --option-fg: #999;
+  --paginate-bg: #1c1c1c;
+  --paginate-bg-hover: #222;
+  --paginate-bg-current: #202020;
+  --paginate-border-radius: 0;
+  --paginate-fg: #888;
+  --paginate-fg-disabled: #555;
+  --paginate-divider: #303030;
+  --panel-action-fg: #aaa;
+  --panel-border: none;
+  --panel-bg: #272727;
+  --panel-fg: var(--text-color);
+  --panel-body-border-radius: 0;
+  --panel-box-shadow: none;
+  --panel-border-radius: 0;
+  --panel-head-bg: #1c1c1c;
+  --panel-head-fg: #fff;
+  --panel-head-border-radius: 0;
+  --playlist-card-bg: #111;
+  --playlist-card-border: none;
+  --playlist-card-border-radius: 8px;
+  --playlist-card-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+      0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --playlist-card-fg: #bbb;
+  --playlist-card-missing-image-bg: #202020;
+  --playlist-card-missing-image-fg: #b5b5b5;
+  --prize-bg: #111;
+  --prize-border-radius: 10px;
+  --prize-border: none;
+  --prize-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+      0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --prize-fg: #bbb;
+  --prize-heading-fg: #bbb;
+  --prize-icon-primary-color: mediumseagreen;
+  --prize-icon-secondary-color: linen;
+  --post-bg: #2b2b2b;
+  --post-fg: #ccc;
+  --post-shadow: none;
+  --post-head-fg: var(--text-color);
+  --post-head-bg: none;
+  --post-toolbar-bg: #1d1d1d;
+  --post-toolbar-fg: #ccc;
+  --post-toolbar-hover-bg: #262626;
+  --post-toolbar-hover-fg: inherit;
+  --post-like-fg: green;
+  --post-dislike-fg: red;
+  --post-aside-bg: #393939;
+  --post-aside-fg: #ccc;
+  --post-footer-fg: var(--text-color);
+  --quick-search-bg: #444;
+  --quick-search-fg: #b6b6b6;
+  --quick-search-border: 1px solid transparent;
+  --quick-search-border-radius: 16px;
+  --quick-search-box-shadow: 0 4px 6px rgba(32, 33, 36, 0.28);
+  --quick-search-selector-fg: #b6b6b6;
+  --quick-search-selector-hover-bg: #4b4b4b;
+  --quick-search-selector-hover-fg: #ddd;
+  --quick-search-selector-selected-bg: #555;
+  --quick-search-selector-selected-fg: #ddd;
+  --quick-search-result-bg: #444;
+  --quick-search-result-fg: #ccc;
+  --quick-search-result-hover-bg: #555;
+  --quick-search-result-hover-fg: #ccc;
+  --quick-search-result-image-border-radius: 5px;
+  --quick-search-result-year-fg: #888;
+  --quick-search-result-border: none;
+  --scrollbar-color: #ffffff19;
+  --secondary-nav-bg: #292929;
+  --secondary-nav-box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.2);
+  --secondary-nav-tab-fg: #aaa;
+  --secondary-nav-tab-bg: inherit;
+  --secondary-nav-tab-active-text-decoration: underline #777 2px;
+  --secondary-nav-tab-hover-fg: #ddd;
+  --secondary-nav-tab-hover-bg: transparent;
+  --secondary-nav-tab-hover-text-decoration: underline #777 2px;
+  --secondary-nav-tab-menu-bg: #333;
+  --secondary-nav-tab-menu-fg: inherit;
+  --secondary-nav-tab-menu-border: none;
+  --secondary-nav-tab-menu-border-radius: 6px;
+  --secondary-nav-tab-menu-box-shadow: 0 12px 17px 2px rgba(0, 0, 0, 0.14),
+      0 5px 22px 4px rgba(0, 0, 0, 0.12), 0 7px 8px -4px rgba(0, 0, 0, 0.2);
+  --select-border: 1px solid #555;
+  --select-border-active: 2px solid #2195f3;
+  --select-border-error: 1px solid #ba1b1b;
+  --select-border-hover: 2px solid #999;
+  --select-border-radius: 5px;
+  --select-fg: #bbb;
+  --select-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%23bbb' d='M6 8l-1 1l5 5l5-5l-1-1l-4 4l-4-4z'/></svg>");
+  --select-padding: 11px 23px 11px 11px;
+  --select-padding-active: 10px 22px 10px 10px;
+  --select-padding-hover: 10px 22px 10px 10px;
+  --subforum-listing-odd-bg: #2a2a2a;
+  --subforum-listing-even-bg: transparent;
+  --subforum-listing-border: none;
+  --textarea-border: 1px solid #555;
+  --textarea-border-active: 2px solid #2196f3;
+  --textarea-border-error: 1px solid #ba1b1b;
+  --textarea-border-hover: 2px solid #999;
+  --textarea-border-radius: 5px;
+  --textarea-fg: #bbb;
+  --textarea-padding: 12px;
+  --textarea-padding-active: 11px;
+  --textarea-padding-hover: 11px;
+  --top-nav-bg: #363636;
+  --top-nav-box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.2);
+  --top-nav-dropdown-fg: #bbb;
+  --top-nav-dropdown-hover-fg: #eee;
+  --top-nav-dropdown-hover-bg: #404040;
+  --top-nav-dropdown-hover-text-decoration: none;
+  --top-nav-dropdown-menu-bg: #3c3c3c;
+  --top-nav-dropdown-menu-border: none;
+  --top-nav-dropdown-menu-border-radius: 6px;
+  --top-nav-dropdown-menu-box-shadow: 0 12px 17px 2px rgba(0, 0, 0, 0.14),
+      0 5px 22px 4px rgba(0, 0, 0, 0.12), 0 7px 8px -4px rgba(0, 0, 0, 0.2);
+  --top-nav-dropdown-menu-item-fg: #bbb;
+  --top-nav-dropdown-menu-item-bg: transparent;
+  --top-nav-dropdown-menu-item-hover-fg: inherit;
+  --top-nav-dropdown-menu-item-hover-bg: #424242;
+  --top-nav-dropdown-menu-item-hover-text-decoration: none;
+  --top-nav-dropdown-menu-item-icon-fg: #ccc;
+  --top-nav-dropdown-menu-item-icon-bg: #484848;
+  --top-nav-ratio-bar-fg: #ddd;
+  --top-nav-icon-bar-icon-bg: #424242;
+  --top-nav-icon-bar-icon-fg: #bbb;
+  --top-nav-icon-bar-icon-border-radius: 50%;
+  --top-nav-icon-bar-icon-hover-bg: #424242;
+  --top-nav-icon-bar-icon-hover-fg: #b6b6b6;
+  --top-nav-stats-fg: #999;
+  --top-nav-toggle-fg: #999;
+  --torrent-card-bg: #272727;
+  --torrent-card-fg: var(--text-color);
+  --torrent-card-border: none;
+  --torrent-card-head-bg: #1c1c1c;
+  --torrent-card-head-fg: #fff;
+  --torrent-card-link-fg: #fff;
+  --torrent-card-genre-fg: #fff;
+  --torrent-group-bg: #1c1c1c;
+  --torrent-group-header-bg: #303030;
+  --torrent-group-text: white;
+  --torrent-group-text-muted: #878787;
+  --torrent-group-table-stripe-even: rgba(255, 255, 255, 0.02);
+  --torrent-group-table-stripe-odd: rgba(255, 255, 255, 0.05);
+  --torrent-group-hover-brightness-emphasis: 1.2;
+  --torrent-group-chip-border: rgba(255, 255, 255, 0.05);
+  --torrent-row-fg: #ccc;
+  --torrent-row-visited-fg: #a295fe;
+  --torrent-row-sticky-bg: #404040;
+  --torrent-row-format-fg: #ccc;
+  --torrent-row-format-bg: #3c3c3c;
+  --torrent-row-buttons-fg: currentColor;
+  --torrent-row-seeders-fg: #3fb618;
+  --torrent-row-leechers-fg: #996666;
+  --torrent-row-completed-fg: #42a5f5;
+  --torrent-row-comments-fg: #669966;
+  --torrent-row-internal-fg: #baaf92;
+  --torrent-row-personal-fg: #865be9;
+  --torrent-row-featured-fg: #997799;
+  --torrent-row-freeleech-fg: #ffb800;
+  --torrent-row-double-upload-fg: #619061;
+  --torrent-row-sticky-fg: #cccccc;
+  --torrent-row-highspeed-fg: #996666;
+  --torrent-row-bumped-fg: #f98a1e;
+  --torrent-tag-fg: #eee;
+  --torrent-tag-bg: transparent;
+  --torrent-tag-hover-fg: #fff;
+  --torrent-tag-hover-bg: rgba(255, 255, 255, 0.1);
+  --user-stat-card-bg: #1a1a1a;
+  --user-stat-card-fg: #ddd;
+  --user-stat-card-border: none;
+  --user-stat-card-border-radius: 0;
+  --user-stat-card-box-shadow: none;
+}
+
+.text-bright {
+  color: #fefefe;
+}
+
+a.text-bright:focus,
+a.text-bright:hover {
+  color: #fcfcfc;
+}
+
+.text-blue {
+  color: var(--text-color);
+}
+
+.text-purple {
+  color: #958;
+}
+
+a {
+  color: var(--color-blue);
+}
+
+a:hover {
+  color: var(--color-light-blue);
+}
+
+.text-green {
+  color: var(--color-light-green);
+}
+
+.text-muted {
+  color: #999;
+}
+
+.text-red {
+  color: var(--color-light-red);
+}
+
+.text-orange {
+  color: var(--color-light-orange);
+}
+
+.text-pink {
+  color: #979;
+}
+
+.text-danger {
+  color: var(--color-light-red);
+}
+
+.badge-user {
+  border: 0;
+  box-shadow: none;
+  background-color: #373737;
+  text-shadow: 1.5px 1.5px #000;
+}
+
+.footer__icon {
+  color: rgb(148, 123, 204);
+}
+
+/* CHAT */
+#frame {
+  background: #262929;
+}
+
+#frame .content .messages ul li {
+  border-bottom: 1px dashed #424545;
+}
+
+.chatbox .typing {
+  color: #dddddd;
+}
+
+#frame .content .messages ul li.sent h4 .text-muted {
+  color: #818686;
+}
+
+#frame .content .messages ul li > img {
+  border: 3px solid #7289da;
+}
+
+#frame .content .message-input .wrap input {
+  color: #32465a;
+}
+
+#frame .content .message-input .wrap input:focus {
+  outline: none;
+}
+
+#frame .content .message-input .wrap .attachment {
+  color: #435f7a;
+}
+
+#frame .content .message-input .wrap button {
+  background: #32465a;
+  color: #f5f5f5;
+}
+
+#frame .content .message-input .wrap button:hover {
+  background: #435f7a;
+}
+
+/* Chat Message Bubbles
+============================================================================
+
+/* Message avatar */
+.sent > a {
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.sent > a > img {
+  display: block !important;
+  height: 100%;
+  position: absolute;
+  bottom: 4px;
+}
+
+/* Avatar */
+#frame .content .messages ul li.sent img.chat-user-image {
+  height: 40px;
+  width: 40px;
+}
+
+/* Message header */
+.sent > h4 {
+  display: block !important;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: var(--message-bubble-bg) !important;
+  padding: 4px 12px 0 8px;
+  margin: 4px 12px 0 48px;
+}
+
+/* Message text */
+.sent > div {
+  display: block !important;
+  border-bottom-right-radius: 15px;
+  background-color: var(--message-bubble-bg) !important;
+  padding: 0 12px 4px 8px !important;
+  margin: 0 12px 4px 48px !important;
+}
+
+/* Bot messages */
+.sent > .system {
+  border-bottom-left-radius: 15px;
+}
+
+/* Message triangle tip */
+.sent > div:not(.system):before {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 38px;
+  width: 0;
+  border-right: 10px solid var(--message-bubble-bg) !important;
+  border-top: 10px solid transparent;
+  /* border-bottom: 10px solid transparent; */
+}
+
+/* Entire Message */
+#frame .content .messages ul li.sent {
+  border: 0;
+  display: table;
+  max-width: 85%;
+  width: auto;
+}
+
+/* Timestamp */
+#frame .content .messages ul li.sent h4 .text-muted {
+  float: none;
+}
+
+/* Base: Dark red */
+/* 2014 material design colors from https://material.io/design/color/the-color-system.html#tools-for-picking-colors */
+/*
+
+Red
+
+50 #FFEBEE
+100 #FFCDD2
+200 #EF9A9A
+300 #E57373
+400 #EF5350
+500 #F44336
+600 #E53935
+700 #D32F2F
+800 #C62828
+900 #B71C1C
+A100 #FF8A80
+A200 #FF5252
+A400 #FF1744
+A700 #D50000
+
+*/
+:root {
+  --color-light-blue: #e57373;
+  --color-light-green: #e57373;
+  --color-light-magenta: #e57373;
+  --color-light-purple: #e57373;
+  --color-400: #ef5350;
+  --color-blue: #f44336;
+  --color-green: #f44336;
+  --color-yellow: #f44336;
+  --color-magenta: #e53935;
+  --color-red: #c62828;
+  --color-dark-green: #c62828;
+  --color-A200: #ff5252;
+  --color-A400: #ff1744;
+  --color-purple: #d50000;
+  --color-dark-blue: #181818;
+  --color-dark-red: #181818;
+  --movie-overlay: radial-gradient(
+      circle at 20% 50%,
+      rgba(0, 0, 0, 1) 5.46%,
+      rgba(198, 40, 40, 0.46)
+  );
+  --background-pipe: url("/public/img/pipes/red.png");
+  --gradient-background: radial-gradient(at 30% top, #30172a 0%, #081c24 70%);
+}
+
+/*
+
+2014 material design colors from https://material.io/design/color/the-color-system.html#tools-for-picking-colors
+
+Create a stylesheet that sets the following custom properties, and then imports this theme.
+
+For example dark blue,
+
+:root {
+    --color-light-blue: #64B5F6;	  300
+    --color-light-green: #64B5F6;	  300
+    --color-light-magenta: #64B5F6;	300
+    --color-light-purple: #64B5F6;	300
+    --color-400: #42A5F5;           400
+    --color-blue: #2196F3;		      500
+    --color-green: #2196F3;		      500
+    --color-yellow: #2196F3;		    500
+    --color-magenta:  #1E88E5;		  600
+    --color-red: #1565C0;		        800
+    --color-dark-green: #1565C0;	  800
+    --color-A200: #448AFF;          A200
+    --color-A400: #2979FF;          A400
+    --color-purple: #2962FF;		    A700
+
+    --color-dark-blue: #181818;
+    --color-dark-red: #181818;
+
+    --movie-overlay: radial-gradient(circle at 20% 50%, rgba(0, 0, 0, 1) 5.46%, rgba(21, 101, 192, 0.46));    800
+    --background-pipe: url("/public/img/pipes/blue.png");
+    --gradient-background: radial-gradient(at 30% top, #072e46 0%, #081c24 70%);
+}
+*/
+:root {
+  --body-bg: var(--color-dark-blue);
+  --torrent-row-fg: #ccc;
+  --torrent-row-format-fg: #ccc;
+  --torrent-row-format-bg: #3c3c3c;
+  --torrent-row-buttons-fg: currentColor;
+  --torrent-row-seeders-fg: #3fb618;
+  --torrent-row-leechers-fg: var(--color-light-red);
+  --torrent-row-completed-fg: var(--color-400);
+  --torrent-row-comments-fg: #3fb618;
+  --torrent-row-internal-fg: #baaf92;
+  --torrent-row-personal-fg: #865be9;
+  --torrent-row-featured-fg: var(--color-400);
+  --torrent-row-freeleech-fg: #ffb800;
+  --torrent-row-double-upload-fg: #3fb618;
+  --torrent-row-sticky-fg: var(--text-color);
+  --torrent-row-highspeed-fg: var(--color-light-red);
+  --torrent-row-bumped-fg: #ffb800;
+}
+
+.text-green {
+  color: #3fb618;
+}
+
+.text-muted {
+  color: #999;
+}
+
+i.torrent-icon {
+  color: var(--color-blue);
+}
+
+.panel-chat > .panel-body > #frame > .content {
+  background-color: var(--color-dark-blue);
+}
+
+.text-info,
+.footer__icon {
+  color: var(--color-400);
+}
+
+.badge-extra {
+  border: 1px solid rgba(66, 70, 92, 0.61);
+  border-radius: 0;
+}
+
+.text-bright {
+  color: #fefefe;
+}
+
+a.text-bright:focus,
+a.text-bright:hover {
+  color: #fcfcfc;
+}
+
+.text-purple,
+.text-orange,
+.text-success,
+.text-pink {
+  color: var(--color-400);
+}
+
+.text-danger {
+  color: #996666;
+}
+
+.badge-user {
+  border-radius: 0;
+}
+
+/* Crimson Noir */
+:root {
+    /* Palette */
+    --cn-bg: #0d0a0b;
+    --cn-surface-1: #161213;
+    --cn-surface-2: #1d1819;
+    --cn-surface-3: #272021;
+    --cn-border: #2c2425;
+    --cn-border-strong: #3d3233;
+    --cn-text: #ebe5e5;
+    --cn-text-2: #b9afaf;
+    --cn-text-3: #7d7273;
+    --cn-accent: #e5484d;
+    --cn-accent-hover: #f26a6e;
+    --cn-accent-deep: #8f1d22;
+    --cn-accent-soft: rgba(229, 72, 77, 0.14);
+    --cn-glow: rgba(229, 72, 77, 0.35);
+    --cn-green: #4cc38a;
+    --cn-amber: #f5b544;
+    --cn-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 10px 30px -12px rgba(0, 0, 0, 0.7);
+    --cn-shadow-pop: 0 18px 40px -10px rgba(0, 0, 0, 0.8), 0 0 0 1px var(--cn-border);
+    --cn-radius: 14px;
+    --cn-radius-sm: 10px;
+    --cn-font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+    /* Dark-red theme base colours, retuned */
+    --color-light-blue: #f07a7e;
+    --color-light-green: #f07a7e;
+    --color-light-magenta: #f07a7e;
+    --color-light-purple: #f07a7e;
+    --color-400: #ec5a5f;
+    --color-blue: var(--cn-accent);
+    --color-green: var(--cn-accent);
+    --color-yellow: var(--cn-accent);
+    --color-magenta: #d63a40;
+    --color-red: #a8262c;
+    --color-dark-green: #a8262c;
+    --color-A200: #ff5c61;
+    --color-A400: #ff3b42;
+    --color-purple: #c81e25;
+    --color-dark-blue: var(--cn-bg);
+    --color-dark-red: var(--cn-bg);
+    --gradient-background: radial-gradient(at 30% top, #2a0f12 0%, var(--cn-bg) 65%);
+    --movie-overlay: radial-gradient(circle at 20% 50%, rgba(13, 10, 11, 1) 5%, rgba(143, 29, 34, 0.45));
+
+    /* Page */
+    --body-bg: var(--cn-bg);
+    --body-fg: var(--cn-text);
+    --scrollbar-color: var(--cn-border-strong);
+    --text-color: var(--cn-text);
+
+    /* Top nav */
+    --top-nav-bg: rgba(18, 14, 15, 0.82);
+    --top-nav-box-shadow: 0 1px 0 var(--cn-border);
+    --top-nav-dropdown-fg: var(--cn-text-2);
+    --top-nav-dropdown-hover-fg: var(--cn-text);
+    --top-nav-dropdown-hover-bg: transparent;
+    --top-nav-dropdown-hover-text-decoration: none;
+    --top-nav-dropdown-menu-bg: var(--cn-surface-2);
+    --top-nav-dropdown-menu-border: 1px solid var(--cn-border);
+    --top-nav-dropdown-menu-border-radius: var(--cn-radius-sm);
+    --top-nav-dropdown-menu-box-shadow: var(--cn-shadow-pop);
+    --top-nav-dropdown-menu-item-fg: var(--cn-text-2);
+    --top-nav-dropdown-menu-item-bg: transparent;
+    --top-nav-dropdown-menu-item-hover-fg: var(--cn-text);
+    --top-nav-dropdown-menu-item-hover-bg: var(--cn-surface-3);
+    --top-nav-dropdown-menu-item-hover-text-decoration: none;
+    --top-nav-dropdown-menu-item-icon-fg: var(--cn-accent);
+    --top-nav-dropdown-menu-item-icon-bg: var(--cn-accent-soft);
+    --top-nav-icon-bar-icon-bg: var(--cn-surface-2);
+    --top-nav-icon-bar-icon-fg: var(--cn-text-2);
+    --top-nav-icon-bar-icon-border-radius: 10px;
+    --top-nav-icon-bar-icon-hover-bg: var(--cn-surface-3);
+    --top-nav-icon-bar-icon-hover-fg: var(--cn-text);
+    --top-nav-ratio-bar-fg: var(--cn-text-2);
+    --top-nav-stats-fg: var(--cn-text-2);
+    --top-nav-toggle-fg: var(--cn-text);
+
+    /* Secondary nav */
+    --secondary-nav-bg: rgba(22, 18, 19, 0.7);
+    --secondary-nav-box-shadow: 0 1px 0 var(--cn-border);
+    --secondary-nav-tab-fg: var(--cn-text-3);
+    --secondary-nav-tab-bg: transparent;
+    --secondary-nav-tab-hover-fg: var(--cn-text);
+    --secondary-nav-tab-hover-bg: transparent;
+    --secondary-nav-tab-hover-text-decoration: none;
+    --secondary-nav-tab-active-text-decoration: underline var(--cn-accent) 2px;
+    --secondary-nav-tab-menu-bg: var(--cn-surface-2);
+    --secondary-nav-tab-menu-fg: var(--cn-text-2);
+    --secondary-nav-tab-menu-border: 1px solid var(--cn-border);
+    --secondary-nav-tab-menu-border-radius: var(--cn-radius-sm);
+    --secondary-nav-tab-menu-box-shadow: var(--cn-shadow-pop);
+
+    --breadcrumb-fg: var(--cn-text-3);
+    --breadcrumb-active-fg: var(--cn-text);
+    --breadcrumb-hover-fg: var(--cn-accent-hover);
+
+    /* Panels */
+    --panel-bg: var(--cn-surface-1);
+    --panel-fg: var(--cn-text-2);
+    --panel-border: 1px solid var(--cn-border);
+    --panel-border-radius: var(--cn-radius);
+    --panel-body-border-radius: var(--cn-radius);
+    --panel-box-shadow: var(--cn-shadow);
+    --panel-head-bg: transparent;
+    --panel-head-fg: var(--cn-text);
+    --panel-head-border-radius: var(--cn-radius) var(--cn-radius) 0 0;
+    --panel-action-fg: var(--cn-text-3);
+
+    /* Forms */
+    --fieldset-bg: transparent;
+    --fieldset-fg: var(--cn-text-2);
+    --fieldset-border: 1px solid var(--cn-border);
+    --fieldset-border-radius: var(--cn-radius-sm);
+    --legend-fg: var(--cn-text-3);
+    --legend-bg: transparent;
+    --legend-border: none;
+    --legend-border-radius: 0;
+
+    --label-fg: var(--cn-text-3);
+    --label-fg-hover: var(--cn-text-2);
+    --label-fg-active: var(--cn-accent-hover);
+    --label-fg-error: #ff6b6b;
+
+    --input-text-fg: var(--cn-text);
+    --input-text-border: 1px solid var(--cn-border-strong);
+    --input-text-border-hover: 1px solid #5a4a4b;
+    --input-text-border-active: 1px solid var(--cn-accent);
+    --input-text-border-error: 1px solid #ff6b6b;
+    --input-text-border-radius: var(--cn-radius-sm);
+    --input-text-padding: 12px;
+    --input-text-padding-hover: 12px;
+    --input-text-padding-active: 12px;
+
+    --textarea-fg: var(--cn-text);
+    --textarea-border: 1px solid var(--cn-border-strong);
+    --textarea-border-hover: 1px solid #5a4a4b;
+    --textarea-border-active: 1px solid var(--cn-accent);
+    --textarea-border-error: 1px solid #ff6b6b;
+    --textarea-border-radius: var(--cn-radius-sm);
+    --textarea-padding: 12px;
+    --textarea-padding-hover: 12px;
+    --textarea-padding-active: 12px;
+
+    --select-fg: var(--cn-text);
+    --select-border: 1px solid var(--cn-border-strong);
+    --select-border-hover: 1px solid #5a4a4b;
+    --select-border-active: 1px solid var(--cn-accent);
+    --select-border-error: 1px solid #ff6b6b;
+    --select-border-radius: var(--cn-radius-sm);
+    --select-padding: 11px 28px 11px 12px;
+    --select-padding-hover: 11px 28px 11px 12px;
+    --select-padding-active: 11px 28px 11px 12px;
+    --select-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%237d7273' d='M6 8l-1 1l5 5l5-5l-1-1l-4 4l-4-4z'/></svg>");
+    --option-bg: var(--cn-surface-2);
+    --option-fg: var(--cn-text);
+
+    --button-filled-bg: var(--cn-accent);
+    --button-filled-fg: #fff;
+    --button-filled-border: none;
+    --button-filled-border-radius: 9px;
+    --button-outlined-bg: transparent;
+    --button-outlined-fg: var(--cn-text);
+    --button-outlined-border: 1px solid var(--cn-border-strong);
+    --button-outlined-border-radius: 9px;
+    --button-text-bg: transparent;
+    --button-text-fg: var(--cn-text-2);
+    --button-text-border: none;
+    --button-text-border-radius: 9px;
+    --icon-button-border-radius: 9px;
+
+    --bbcode-input-bg: var(--cn-surface-2);
+    --bbcode-input-header-bg: var(--cn-surface-3);
+    --bbcode-input-body-bg: var(--cn-surface-2);
+    --bbcode-input-border: 1px solid var(--cn-border-strong);
+    --bbcode-input-border-radius: var(--cn-radius-sm);
+
+    --bbcode-rendered-fg-default: #d9d2d2;
+    --bbcode-rendered-fg-muted: var(--cn-text-3);
+    --bbcode-rendered-border-default: var(--cn-border);
+    --bbcode-rendered-border-muted: var(--cn-border);
+    --bbcode-rendered-canvas-subtle: var(--cn-surface-2);
+    --bbcode-rendered-neutral-muted: rgba(255, 255, 255, 0.08);
+    --bbcode-rendered-accent-fg: var(--cn-accent-hover);
+    --bbcode-rendered-quote-bg: rgba(255, 255, 255, 0.025);
+    --bbcode-rendered-quote-border: var(--cn-accent-deep);
+
+    --meter-bg: var(--cn-surface-3);
+    --meter-fg: var(--cn-accent);
+
+    /* Tables */
+    --data-table-fg: var(--cn-text-2);
+    --data-table-th-bg: var(--cn-surface-2);
+    --data-table-thead-border: 1px solid var(--cn-border);
+    --data-table-tr-border: 1px solid rgba(255, 255, 255, 0.04);
+    --data-table-tr-odd-bg: transparent;
+    --data-table-tr-even-bg: rgba(255, 255, 255, 0.015);
+    --data-table-tr-hover-bg: var(--cn-accent-soft);
+    --data-table-tfoot-border: 1px solid var(--cn-border);
+    --data-table-border-radius: var(--cn-radius);
+
+    --key-value-odd-bg: transparent;
+    --key-value-even-bg: rgba(255, 255, 255, 0.02);
+
+    /* Forums */
+    --subforum-listing-odd-bg: transparent;
+    --subforum-listing-even-bg: transparent;
+    --subforum-listing-border: 1px solid rgba(255, 255, 255, 0.05);
+
+    /* Torrent lists */
+    --torrent-row-fg: var(--cn-text);
+    --torrent-row-visited-fg: #b49090;
+    --torrent-row-format-fg: var(--cn-text-2);
+    --torrent-row-format-bg: var(--cn-surface-3);
+    --torrent-row-buttons-fg: var(--cn-text-3);
+    --torrent-row-seeders-fg: var(--cn-green);
+    --torrent-row-leechers-fg: var(--cn-accent-hover);
+    --torrent-row-completed-fg: var(--cn-text-2);
+    --torrent-row-comments-fg: var(--cn-text-2);
+    --torrent-row-freeleech-fg: var(--cn-amber);
+    --torrent-row-double-upload-fg: var(--cn-green);
+    --torrent-row-featured-fg: var(--cn-accent-hover);
+    --torrent-row-bumped-fg: var(--cn-amber);
+    --torrent-row-sticky-bg: rgba(229, 72, 77, 0.06);
+    --torrent-row-sticky-fg: var(--cn-text);
+
+    --torrent-card-bg: var(--cn-surface-1);
+    --torrent-card-fg: var(--cn-text-2);
+    --torrent-card-head-bg: var(--cn-surface-1);
+    --torrent-card-head-fg: var(--cn-text);
+    --torrent-card-link-fg: var(--cn-text);
+    --torrent-card-border: 1px solid var(--cn-border);
+
+    --torrent-group-bg: var(--cn-surface-1);
+    --torrent-group-header-bg: var(--cn-surface-1);
+    --torrent-group-text: var(--cn-text-2);
+    --torrent-group-text-muted: var(--cn-text-3);
+    --torrent-group-chip-border: var(--cn-border-strong);
+    --torrent-group-table-stripe-odd: transparent;
+    --torrent-group-table-stripe-even: rgba(255, 255, 255, 0.02);
+
+    --torrent-tag-fg: var(--cn-text-2);
+    --torrent-tag-hover-fg: var(--cn-text);
+    --torrent-tag-hover-bg: var(--cn-surface-3);
+
+    /* Cards, posts, chat */
+    --mediahub-card-bg: var(--cn-surface-1);
+    --mediahub-card-fg: var(--cn-text-2);
+    --mediahub-card-hover-fg: var(--cn-text);
+    --mediahub-card-border: 1px solid var(--cn-border);
+    --mediahub-card-border-radius: var(--cn-radius);
+    --mediahub-card-box-shadow: var(--cn-shadow);
+
+    --user-stat-card-bg: var(--cn-surface-1);
+    --user-stat-card-fg: var(--cn-text-2);
+    --user-stat-card-border: 1px solid var(--cn-border);
+    --user-stat-card-border-radius: var(--cn-radius);
+    --user-stat-card-box-shadow: var(--cn-shadow);
+
+    --article-card-bg: var(--cn-surface-1);
+    --article-card-fg: var(--cn-text-2);
+    --article-card-head-fg: var(--cn-text);
+    --article-card-time-fg: var(--cn-text-3);
+
+    --post-bg: var(--cn-surface-2);
+    --post-fg: var(--cn-text);
+    --post-shadow: var(--cn-shadow);
+    --post-head-bg: transparent;
+    --post-head-fg: var(--cn-text-3);
+    --post-aside-bg: rgba(0, 0, 0, 0.22);
+    --post-aside-fg: var(--cn-text-3);
+    --post-footer-fg: var(--cn-text-3);
+    --post-toolbar-bg: transparent;
+    --post-toolbar-fg: var(--cn-text-3);
+    --post-toolbar-hover-bg: var(--cn-surface-2);
+    --post-toolbar-hover-fg: var(--cn-text);
+    --post-like-fg: var(--cn-green);
+    --post-dislike-fg: var(--cn-accent);
+
+    --chatbox-message-bg: var(--cn-surface-2);
+    --chatbox-users-bg: var(--cn-surface-1);
+    --chatbox-button-fg: var(--cn-text-3);
+    --chatbox-button-hover-fg: var(--cn-text);
+    --message-bubble-bg: var(--cn-surface-2);
+    --message-bubble-fg: var(--cn-text);
+
+    --dialog-bg: var(--cn-surface-1);
+    --dialog-fg: var(--cn-text);
+    --dialog-head-bg: var(--cn-surface-1);
+    --dialog-head-fg: var(--cn-text);
+    --dialog-border: 1px solid var(--cn-border);
+    --dialog-border-radius: var(--cn-radius);
+    --dialog-box-shadow: var(--cn-shadow-pop);
+
+    --alert-bg: var(--cn-surface-2);
+    --alert-fg: var(--cn-text-2);
+
+    --paginate-bg: var(--cn-surface-1);
+    --paginate-bg-hover: var(--cn-surface-3);
+    --paginate-bg-current: var(--cn-accent);
+    --paginate-fg: var(--cn-text-2);
+    --paginate-fg-disabled: var(--cn-text-3);
+    --paginate-border-radius: 9px;
+
+    --quick-search-bg: var(--cn-surface-2);
+    --quick-search-fg: var(--cn-text-2);
+    --quick-search-border: 1px solid var(--cn-border);
+    --quick-search-border-radius: var(--cn-radius-sm);
+    --quick-search-box-shadow: var(--cn-shadow-pop);
+    --quick-search-result-bg: var(--cn-surface-2);
+    --quick-search-result-fg: var(--cn-text-2);
+    --quick-search-result-hover-bg: var(--cn-surface-3);
+    --quick-search-result-hover-fg: var(--cn-text);
+    --quick-search-result-year-fg: var(--cn-text-3);
+    --quick-search-selector-fg: var(--cn-text-3);
+    --quick-search-selector-hover-bg: var(--cn-surface-3);
+    --quick-search-selector-hover-fg: var(--cn-text);
+    --quick-search-selector-selected-bg: var(--cn-accent-soft);
+    --quick-search-selector-selected-fg: var(--cn-accent-hover);
+
+    --footer-bg: transparent;
+    --footer-hr-fg: var(--cn-border);
+    --notification-unread: var(--cn-accent);
+}
+
+/* Base */
+
+html,
+body {
+    font-family: var(--cn-font);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background:
+        radial-gradient(1200px 500px at 50% -200px, rgba(143, 29, 34, 0.22), transparent 70%),
+        var(--cn-bg) fixed;
+    color: var(--cn-text);
+    accent-color: var(--cn-accent);
+}
+
+::selection {
+    background: rgba(229, 72, 77, 0.35);
+    color: #fff;
+}
+
+a {
+    color: var(--cn-accent-hover);
+    transition: color 120ms ease;
+}
+
+a:hover {
+    color: #ff9295;
+}
+
+:focus-visible {
+    outline: 2px solid var(--cn-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+hr {
+    border-top: 1px solid var(--cn-border);
+}
+
+.text-muted {
+    color: var(--cn-text-3);
+}
+
+/* Nav bars: frosted glass that stays put while scrolling */
+
+.top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: saturate(140%) blur(12px);
+    -webkit-backdrop-filter: saturate(140%) blur(12px);
+}
+
+/* Thin crimson line along the bottom of the top bar */
+.top-nav::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(229, 72, 77, 0.55) 50%, transparent);
+    pointer-events: none;
+}
+
+.secondary-nav {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.nav-tab__link,
+.nav-tab--active__link {
+    font-weight: 500;
+    transition: color 120ms ease;
+}
+
+.nav-tab__link:hover {
+    filter: none;
+}
+
+.nav-tab--active__link {
+    color: var(--cn-text);
+    text-underline-offset: 8px;
+}
+
+/* Panels */
+
+.panelV2 {
+    overflow: clip;
+}
+
+.panel__header,
+.panel__heading {
+    border-bottom: 1px solid var(--cn-border);
+}
+
+.panel__header > .panel__heading {
+    border-bottom: none;
+}
+
+.panel__heading {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    padding: 14px 18px;
+}
+
+.panel__body {
+    padding: 18px;
+}
+
+/* Forms */
+
+.form__fieldset {
+    padding: 12px 16px 14px;
+}
+
+.form__legend {
+    font-size: 11px !important;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0 6px;
+}
+
+.form__label--floating {
+    background-color: var(--cn-surface-1);
+}
+
+.form__text,
+.form__textarea,
+.form__select {
+    background-color: var(--cn-bg);
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.form__text:focus,
+.form__textarea:focus,
+.form__select:focus {
+    box-shadow: 0 0 0 3px var(--cn-accent-soft);
+}
+
+.form__select option {
+    background-color: var(--cn-surface-2);
+    color: var(--cn-text);
+}
+
+.form__checkbox,
+.form__radio {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    vertical-align: -3px;
+    cursor: pointer;
+}
+
+.form__group:has(> .form__label > .form__checkbox) {
+    margin: 2px 0;
+}
+
+.form__group > .form__label:has(> .form__checkbox) {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 8px;
+    border-radius: 7px;
+    cursor: pointer;
+    color: var(--cn-text-2);
+    transition: background-color 120ms ease, color 120ms ease;
+}
+
+.form__group > .form__label:has(> .form__checkbox):hover {
+    background-color: var(--cn-surface-2);
+    color: var(--cn-text);
+}
+
+.form__button {
+    font-weight: 600;
+    transition: background-color 150ms ease, box-shadow 150ms ease, transform 80ms ease;
+}
+
+.form__button--filled:hover {
+    background-color: var(--cn-accent-hover);
+    box-shadow: 0 6px 18px -6px var(--cn-glow);
+}
+
+.form__button:active {
+    transform: translateY(1px);
+}
+
+/* Forum and topic listings */
+
+.subforum-listings__item,
+.topic-listings__item {
+    transition: background-color 120ms ease;
+}
+
+.subforum-listings__item:hover,
+.topic-listings__item:hover {
+    background-color: rgba(229, 72, 77, 0.05);
+}
+
+.subforum-listing,
+.topic-listing {
+    padding: 12px 14px;
+}
+
+.subforum-listing__figure,
+.topic-listing__figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subforum-listing__icon {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    font-size: 16px;
+    color: var(--cn-accent);
+    background-color: var(--cn-accent-soft);
+}
+
+.subforum-listing__link {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.subforum-listing__description {
+    color: var(--cn-text-3);
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+.topic-listing__heading a {
+    color: var(--cn-text);
+    font-weight: 500;
+}
+
+.topic-listing__heading a:hover {
+    color: var(--cn-accent-hover);
+}
+
+/* Counts: big number, small label */
+.subforum-listing__topic-stats dd,
+.subforum-listing__post-stats dd,
+.topic-listing__post-stats dd,
+.topic-listing__view-stats dd {
+    color: var(--cn-text);
+    font-size: 14px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.subforum-listing__topic-stats dt,
+.subforum-listing__post-stats dt,
+.topic-listing__post-stats dt,
+.topic-listing__view-stats dt {
+    color: var(--cn-text-3);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* Latest post: title in light text, date and author muted, red only on hover */
+.subforum-listing__latest-heading,
+.subforum-listing__latest-heading a {
+    color: var(--cn-text);
+    font-weight: 500;
+}
+
+.subforum-listing__latest-datetime,
+.subforum-listing__latest-datetime a,
+.subforum-listing__latest-author,
+.subforum-listing__latest-author a,
+.topic-listing__created-datetime,
+.topic-listing__created-datetime a,
+.topic-listing__created-author,
+.topic-listing__created-author a,
+.topic-listing__latest-datetime,
+.topic-listing__latest-datetime a,
+.topic-listing__latest-author,
+.topic-listing__latest-author a {
+    color: var(--cn-text-3);
+    font-size: 13px;
+}
+
+.subforum-listing__latest-heading a:hover,
+.subforum-listing__latest-datetime a:hover,
+.subforum-listing__latest-author a:hover,
+.topic-listing__created-datetime a:hover,
+.topic-listing__created-author a:hover,
+.topic-listing__latest-datetime a:hover,
+.topic-listing__latest-author a:hover,
+a.subforum-listing__latest-datetime:hover,
+a.topic-listing__latest-datetime:hover {
+    color: var(--cn-accent-hover);
+}
+
+/* Forum posts: each post is its own card */
+
+.topic-posts {
+    row-gap: 16px;
+}
+
+.post {
+    border: 1px solid var(--cn-border);
+}
+
+.post__aside {
+    min-width: 180px;
+    padding: 16px;
+    border-right: 1px solid var(--cn-border);
+}
+
+.post__avatar {
+    box-shadow: 0 0 0 1px var(--cn-border-strong);
+}
+
+.post__author {
+    margin-top: 4px;
+    font-weight: 600;
+}
+
+.post__author-title {
+    margin: 4px 0 10px;
+    color: var(--cn-text-2);
+    font-style: italic;
+}
+
+.post__author-join,
+.post__author-topics,
+.post__author-posts {
+    padding: 3px 0;
+    font-size: 12px;
+}
+
+.post__author-join dt,
+.post__author-topics dt,
+.post__author-posts dt,
+.post__author-topics a,
+.post__author-posts a {
+    color: var(--cn-text-3);
+}
+
+.post__author-join dd,
+.post__author-topics dd,
+.post__author-posts dd,
+.post__author-topics dd a,
+.post__author-posts dd a {
+    color: var(--cn-text-2);
+    font-variant-numeric: tabular-nums;
+}
+
+.post__author-topics a:hover,
+.post__author-posts a:hover {
+    color: var(--cn-accent-hover);
+}
+
+.post__header {
+    min-height: 42px;
+    padding-left: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.post__datetime,
+.post__datetime a {
+    color: var(--cn-text-3);
+}
+
+.post__toolbar {
+    border-radius: 0;
+}
+
+.post__content {
+    padding: 18px 22px 22px;
+    font-size: 14.5px;
+    line-height: 1.65;
+}
+
+.post__footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 12px 22px;
+}
+
+@media screen and (max-width: 576px) {
+    .post__aside {
+        min-width: 0;
+        padding: 10px 14px;
+        border-right: none;
+        border-bottom: 1px solid var(--cn-border);
+    }
+
+    .post__header {
+        padding-left: 14px;
+    }
+
+    .post__content {
+        padding: 14px;
+    }
+}
+
+/* Tables */
+
+.data-table th {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--cn-text-3);
+}
+
+.data-table tbody tr {
+    transition: background-color 100ms ease;
+}
+
+/* Cards */
+
+.torrent-card,
+.user-card,
+.post,
+.article-preview,
+.torrent-search--grouped__result {
+    border-radius: var(--cn-radius);
+}
+
+.torrent-card,
+.torrent-search--grouped__result {
+    border: 1px solid var(--cn-border);
+    transition: border-color 150ms ease, transform 150ms ease;
+}
+
+.torrent-card:hover,
+.torrent-search--grouped__result:hover {
+    border-color: var(--cn-border-strong);
+}
+
+/* Badges */
+
+.badge-user,
+.badge-extra {
+    border-radius: 6px;
+}
+
+.badge-extra {
+    border-color: var(--cn-border-strong);
+}
+
+/* Pagination */
+
+.pagination__link,
+.pagination__current {
+    border-radius: 9px;
+}
+
+.pagination__current {
+    color: #fff;
+}
+
+/* Chat */
+
+.chatbox-message {
+    border-radius: 14px 14px 14px 4px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.chatbox-message:before {
+    display: none;
+}
+
+.chatbox-message__avatar {
+    border-radius: 50%;
+    border-width: 1.5px;
+}
+
+.chatbox-message__time {
+    color: var(--cn-text-3);
+    font-variant-numeric: tabular-nums;
+}
+
+.chatbox-message__content {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--cn-text);
+}
+
+.chatbox__tab {
+    border-radius: 8px 8px 0 0;
+}
+
+/* Chat action buttons (reply / DM / gift) and the react button:
+   quiet grey icons that only appear when hovering a message */
+.chatbox-message .u3d-action-bar {
+    display: inline-flex;
+    gap: 2px;
+    margin-left: 4px;
+}
+
+.chatbox-message .u3d-action-bar .u3d-action-btn,
+.chatbox-message .dv-reaction-add .dv-reaction-add__btn {
+    align-items: center;
+    justify-content: center;
+    width: 26px !important;
+    height: 26px !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 7px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: var(--cn-text-3) !important;
+    font-size: 12px !important;
+    cursor: pointer;
+    transition: background-color 120ms ease, color 120ms ease;
+}
+
+.chatbox-message .u3d-action-bar .u3d-action-btn:hover,
+.chatbox-message .dv-reaction-add .dv-reaction-add__btn:hover {
+    background: var(--cn-surface-3) !important;
+    color: var(--cn-text) !important;
+}
+
+.chatbox-message .u3d-action-bar .u3d-action-btn--dm:hover {
+    color: var(--cn-accent-hover) !important;
+}
+
+.chatbox-message .u3d-action-bar .u3d-action-btn--gift:hover {
+    color: var(--cn-amber) !important;
+}
+
+@media (hover: hover) {
+    .chatbox-message .u3d-action-bar,
+    .chatbox-message .dv-reaction-add__btn {
+        opacity: 0;
+        transition: opacity 120ms ease;
+    }
+
+    .chatbox-message:hover .u3d-action-bar,
+    .chatbox-message:hover .dv-reaction-add__btn,
+    .chatbox-message:focus-within .dv-reaction-add__btn {
+        opacity: 1;
+    }
+}
+
+.chatbox-message .dv-reaction-picker {
+    background: var(--cn-surface-2) !important;
+    border: 1px solid var(--cn-border) !important;
+    border-radius: var(--cn-radius-sm) !important;
+    box-shadow: var(--cn-shadow-pop) !important;
+}
+
+/* Reaction pills under a message */
+.chatbox-message .dv-reaction {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border: 1px solid var(--cn-border-strong);
+    border-radius: 999px;
+    background: var(--cn-surface-3);
+    color: var(--cn-text-2);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.chatbox-message .dv-reaction--mine {
+    border-color: rgba(229, 72, 77, 0.5);
+    background: var(--cn-accent-soft);
+    color: var(--cn-text);
+}
+
+/* Quoted message when replying */
+.chatbox-message__reply {
+    border-left: 2px solid var(--cn-accent);
+    border-radius: 0 8px 8px 0;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 4px 10px;
+    margin-bottom: 6px;
+    cursor: pointer;
+}
+
+.chatbox-message__reply-author {
+    color: var(--cn-text-2);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.chatbox-message__reply-text {
+    color: var(--cn-text-3);
+    font-size: 13px;
+}
+
+.chatbox-message__irc-badge {
+    padding: 1px 6px;
+    margin-right: 4px;
+    border-radius: 999px;
+    background: var(--cn-surface-3);
+    color: var(--cn-text-3);
+    font-size: 10px;
+    font-weight: 500;
+}
+
+/* Key-value lists (profile sidebars, stats) */
+
+.key-value dt a {
+    color: var(--cn-text-2);
+}
+
+.key-value dt a:hover {
+    color: var(--cn-accent-hover);
+    text-decoration: none;
+}
+
+.key-value dd {
+    color: var(--cn-text);
+    font-variant-numeric: tabular-nums;
+}
+
+abbr[title] {
+    text-decoration: underline dotted var(--cn-text-3);
+    text-underline-offset: 3px;
+}
+
+/* Rendered BBCode (rules, posts, descriptions, profiles) */
+
+.bbcode-rendered.bbcode-rendered h1,
+.bbcode-rendered.bbcode-rendered h2,
+.bbcode-rendered.bbcode-rendered h3 {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.bbcode-rendered.bbcode-rendered h1,
+.bbcode-rendered.bbcode-rendered h2 {
+    padding-bottom: 10px;
+}
+
+.bbcode-rendered.bbcode-rendered li::marker {
+    color: var(--cn-accent);
+}
+
+.bbcode-rendered.bbcode-rendered blockquote {
+    border-radius: 0 8px 8px 0;
+}
+
+/* Swap BBCode's pure "red" for the skin's crimson so it doesn't glare */
+.bbcode-rendered [style*='color: red'],
+.bbcode-rendered [style*='color:red'],
+.bbcode-rendered [style*='#ff0000' i],
+.bbcode-rendered [style*='#f00;' i] {
+    color: var(--cn-accent) !important;
+}
+
+/* Scrollbars */
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--cn-border-strong) transparent;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--cn-border-strong);
+    border: 2px solid var(--cn-bg);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #57474a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
+
+/* Clear artwork: TMDB header art on torrent pages shows unblurred */
+
+:root {
+    --meta-backdrop-filter: none;
+}
+
+.meta__backdrop {
+    filter: none;
+}
+
+/* Keeps the title, description and details readable over bright artwork */
+.meta {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9), 0 0 12px rgba(0, 0, 0, 0.6);
+}

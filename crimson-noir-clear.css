@@ -1,0 +1,1034 @@
+/*
+ * Crimson Noir (clear artwork): a skin for DreadVault (UNIT3D)
+ * Same as Crimson Noir, but TMDB header art on torrent pages is not blurred.
+ * Paste the hosted URL into Settings > "External CSS stylesheet",
+ * with the Theme dropdown left on "Dark red".
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Palette */
+    --cn-bg: #0d0a0b;
+    --cn-surface-1: #161213;
+    --cn-surface-2: #1d1819;
+    --cn-surface-3: #272021;
+    --cn-border: #2c2425;
+    --cn-border-strong: #3d3233;
+    --cn-text: #ebe5e5;
+    --cn-text-2: #b9afaf;
+    --cn-text-3: #7d7273;
+    --cn-accent: #e5484d;
+    --cn-accent-hover: #f26a6e;
+    --cn-accent-deep: #8f1d22;
+    --cn-accent-soft: rgba(229, 72, 77, 0.14);
+    --cn-glow: rgba(229, 72, 77, 0.35);
+    --cn-green: #4cc38a;
+    --cn-amber: #f5b544;
+    --cn-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 10px 30px -12px rgba(0, 0, 0, 0.7);
+    --cn-shadow-pop: 0 18px 40px -10px rgba(0, 0, 0, 0.8), 0 0 0 1px var(--cn-border);
+    --cn-radius: 14px;
+    --cn-radius-sm: 10px;
+    --cn-font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+    /* Dark-red theme base colours, retuned */
+    --color-light-blue: #f07a7e;
+    --color-light-green: #f07a7e;
+    --color-light-magenta: #f07a7e;
+    --color-light-purple: #f07a7e;
+    --color-400: #ec5a5f;
+    --color-blue: var(--cn-accent);
+    --color-green: var(--cn-accent);
+    --color-yellow: var(--cn-accent);
+    --color-magenta: #d63a40;
+    --color-red: #a8262c;
+    --color-dark-green: #a8262c;
+    --color-A200: #ff5c61;
+    --color-A400: #ff3b42;
+    --color-purple: #c81e25;
+    --color-dark-blue: var(--cn-bg);
+    --color-dark-red: var(--cn-bg);
+    --gradient-background: radial-gradient(at 30% top, #2a0f12 0%, var(--cn-bg) 65%);
+    --movie-overlay: radial-gradient(circle at 20% 50%, rgba(13, 10, 11, 1) 5%, rgba(143, 29, 34, 0.45));
+
+    /* Page */
+    --body-bg: var(--cn-bg);
+    --body-fg: var(--cn-text);
+    --scrollbar-color: var(--cn-border-strong);
+    --text-color: var(--cn-text);
+
+    /* Top nav */
+    --top-nav-bg: rgba(18, 14, 15, 0.82);
+    --top-nav-box-shadow: 0 1px 0 var(--cn-border);
+    --top-nav-dropdown-fg: var(--cn-text-2);
+    --top-nav-dropdown-hover-fg: var(--cn-text);
+    --top-nav-dropdown-hover-bg: transparent;
+    --top-nav-dropdown-hover-text-decoration: none;
+    --top-nav-dropdown-menu-bg: var(--cn-surface-2);
+    --top-nav-dropdown-menu-border: 1px solid var(--cn-border);
+    --top-nav-dropdown-menu-border-radius: var(--cn-radius-sm);
+    --top-nav-dropdown-menu-box-shadow: var(--cn-shadow-pop);
+    --top-nav-dropdown-menu-item-fg: var(--cn-text-2);
+    --top-nav-dropdown-menu-item-bg: transparent;
+    --top-nav-dropdown-menu-item-hover-fg: var(--cn-text);
+    --top-nav-dropdown-menu-item-hover-bg: var(--cn-surface-3);
+    --top-nav-dropdown-menu-item-hover-text-decoration: none;
+    --top-nav-dropdown-menu-item-icon-fg: var(--cn-accent);
+    --top-nav-dropdown-menu-item-icon-bg: var(--cn-accent-soft);
+    --top-nav-icon-bar-icon-bg: var(--cn-surface-2);
+    --top-nav-icon-bar-icon-fg: var(--cn-text-2);
+    --top-nav-icon-bar-icon-border-radius: 10px;
+    --top-nav-icon-bar-icon-hover-bg: var(--cn-surface-3);
+    --top-nav-icon-bar-icon-hover-fg: var(--cn-text);
+    --top-nav-ratio-bar-fg: var(--cn-text-2);
+    --top-nav-stats-fg: var(--cn-text-2);
+    --top-nav-toggle-fg: var(--cn-text);
+
+    /* Secondary nav */
+    --secondary-nav-bg: rgba(22, 18, 19, 0.7);
+    --secondary-nav-box-shadow: 0 1px 0 var(--cn-border);
+    --secondary-nav-tab-fg: var(--cn-text-3);
+    --secondary-nav-tab-bg: transparent;
+    --secondary-nav-tab-hover-fg: var(--cn-text);
+    --secondary-nav-tab-hover-bg: transparent;
+    --secondary-nav-tab-hover-text-decoration: none;
+    --secondary-nav-tab-active-text-decoration: underline var(--cn-accent) 2px;
+    --secondary-nav-tab-menu-bg: var(--cn-surface-2);
+    --secondary-nav-tab-menu-fg: var(--cn-text-2);
+    --secondary-nav-tab-menu-border: 1px solid var(--cn-border);
+    --secondary-nav-tab-menu-border-radius: var(--cn-radius-sm);
+    --secondary-nav-tab-menu-box-shadow: var(--cn-shadow-pop);
+
+    --breadcrumb-fg: var(--cn-text-3);
+    --breadcrumb-active-fg: var(--cn-text);
+    --breadcrumb-hover-fg: var(--cn-accent-hover);
+
+    /* Panels */
+    --panel-bg: var(--cn-surface-1);
+    --panel-fg: var(--cn-text-2);
+    --panel-border: 1px solid var(--cn-border);
+    --panel-border-radius: var(--cn-radius);
+    --panel-body-border-radius: var(--cn-radius);
+    --panel-box-shadow: var(--cn-shadow);
+    --panel-head-bg: transparent;
+    --panel-head-fg: var(--cn-text);
+    --panel-head-border-radius: var(--cn-radius) var(--cn-radius) 0 0;
+    --panel-action-fg: var(--cn-text-3);
+
+    /* Forms */
+    --fieldset-bg: transparent;
+    --fieldset-fg: var(--cn-text-2);
+    --fieldset-border: 1px solid var(--cn-border);
+    --fieldset-border-radius: var(--cn-radius-sm);
+    --legend-fg: var(--cn-text-3);
+    --legend-bg: transparent;
+    --legend-border: none;
+    --legend-border-radius: 0;
+
+    --label-fg: var(--cn-text-3);
+    --label-fg-hover: var(--cn-text-2);
+    --label-fg-active: var(--cn-accent-hover);
+    --label-fg-error: #ff6b6b;
+
+    --input-text-fg: var(--cn-text);
+    --input-text-border: 1px solid var(--cn-border-strong);
+    --input-text-border-hover: 1px solid #5a4a4b;
+    --input-text-border-active: 1px solid var(--cn-accent);
+    --input-text-border-error: 1px solid #ff6b6b;
+    --input-text-border-radius: var(--cn-radius-sm);
+    --input-text-padding: 12px;
+    --input-text-padding-hover: 12px;
+    --input-text-padding-active: 12px;
+
+    --textarea-fg: var(--cn-text);
+    --textarea-border: 1px solid var(--cn-border-strong);
+    --textarea-border-hover: 1px solid #5a4a4b;
+    --textarea-border-active: 1px solid var(--cn-accent);
+    --textarea-border-error: 1px solid #ff6b6b;
+    --textarea-border-radius: var(--cn-radius-sm);
+    --textarea-padding: 12px;
+    --textarea-padding-hover: 12px;
+    --textarea-padding-active: 12px;
+
+    --select-fg: var(--cn-text);
+    --select-border: 1px solid var(--cn-border-strong);
+    --select-border-hover: 1px solid #5a4a4b;
+    --select-border-active: 1px solid var(--cn-accent);
+    --select-border-error: 1px solid #ff6b6b;
+    --select-border-radius: var(--cn-radius-sm);
+    --select-padding: 11px 28px 11px 12px;
+    --select-padding-hover: 11px 28px 11px 12px;
+    --select-padding-active: 11px 28px 11px 12px;
+    --select-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%237d7273' d='M6 8l-1 1l5 5l5-5l-1-1l-4 4l-4-4z'/></svg>");
+    --option-bg: var(--cn-surface-2);
+    --option-fg: var(--cn-text);
+
+    --button-filled-bg: var(--cn-accent);
+    --button-filled-fg: #fff;
+    --button-filled-border: none;
+    --button-filled-border-radius: 9px;
+    --button-outlined-bg: transparent;
+    --button-outlined-fg: var(--cn-text);
+    --button-outlined-border: 1px solid var(--cn-border-strong);
+    --button-outlined-border-radius: 9px;
+    --button-text-bg: transparent;
+    --button-text-fg: var(--cn-text-2);
+    --button-text-border: none;
+    --button-text-border-radius: 9px;
+    --icon-button-border-radius: 9px;
+
+    --bbcode-input-bg: var(--cn-surface-2);
+    --bbcode-input-header-bg: var(--cn-surface-3);
+    --bbcode-input-body-bg: var(--cn-surface-2);
+    --bbcode-input-border: 1px solid var(--cn-border-strong);
+    --bbcode-input-border-radius: var(--cn-radius-sm);
+
+    --bbcode-rendered-fg-default: #d9d2d2;
+    --bbcode-rendered-fg-muted: var(--cn-text-3);
+    --bbcode-rendered-border-default: var(--cn-border);
+    --bbcode-rendered-border-muted: var(--cn-border);
+    --bbcode-rendered-canvas-subtle: var(--cn-surface-2);
+    --bbcode-rendered-neutral-muted: rgba(255, 255, 255, 0.08);
+    --bbcode-rendered-accent-fg: var(--cn-accent-hover);
+    --bbcode-rendered-quote-bg: rgba(255, 255, 255, 0.025);
+    --bbcode-rendered-quote-border: var(--cn-accent-deep);
+
+    --meter-bg: var(--cn-surface-3);
+    --meter-fg: var(--cn-accent);
+
+    /* Tables */
+    --data-table-fg: var(--cn-text-2);
+    --data-table-th-bg: var(--cn-surface-2);
+    --data-table-thead-border: 1px solid var(--cn-border);
+    --data-table-tr-border: 1px solid rgba(255, 255, 255, 0.04);
+    --data-table-tr-odd-bg: transparent;
+    --data-table-tr-even-bg: rgba(255, 255, 255, 0.015);
+    --data-table-tr-hover-bg: var(--cn-accent-soft);
+    --data-table-tfoot-border: 1px solid var(--cn-border);
+    --data-table-border-radius: var(--cn-radius);
+
+    --key-value-odd-bg: transparent;
+    --key-value-even-bg: rgba(255, 255, 255, 0.02);
+
+    /* Forums */
+    --subforum-listing-odd-bg: transparent;
+    --subforum-listing-even-bg: transparent;
+    --subforum-listing-border: 1px solid rgba(255, 255, 255, 0.05);
+
+    /* Torrent lists */
+    --torrent-row-fg: var(--cn-text);
+    --torrent-row-visited-fg: #b49090;
+    --torrent-row-format-fg: var(--cn-text-2);
+    --torrent-row-format-bg: var(--cn-surface-3);
+    --torrent-row-buttons-fg: var(--cn-text-3);
+    --torrent-row-seeders-fg: var(--cn-green);
+    --torrent-row-leechers-fg: var(--cn-accent-hover);
+    --torrent-row-completed-fg: var(--cn-text-2);
+    --torrent-row-comments-fg: var(--cn-text-2);
+    --torrent-row-freeleech-fg: var(--cn-amber);
+    --torrent-row-double-upload-fg: var(--cn-green);
+    --torrent-row-featured-fg: var(--cn-accent-hover);
+    --torrent-row-bumped-fg: var(--cn-amber);
+    --torrent-row-sticky-bg: rgba(229, 72, 77, 0.06);
+    --torrent-row-sticky-fg: var(--cn-text);
+
+    --torrent-card-bg: var(--cn-surface-1);
+    --torrent-card-fg: var(--cn-text-2);
+    --torrent-card-head-bg: var(--cn-surface-1);
+    --torrent-card-head-fg: var(--cn-text);
+    --torrent-card-link-fg: var(--cn-text);
+    --torrent-card-border: 1px solid var(--cn-border);
+
+    --torrent-group-bg: var(--cn-surface-1);
+    --torrent-group-header-bg: var(--cn-surface-1);
+    --torrent-group-text: var(--cn-text-2);
+    --torrent-group-text-muted: var(--cn-text-3);
+    --torrent-group-chip-border: var(--cn-border-strong);
+    --torrent-group-table-stripe-odd: transparent;
+    --torrent-group-table-stripe-even: rgba(255, 255, 255, 0.02);
+
+    --torrent-tag-fg: var(--cn-text-2);
+    --torrent-tag-hover-fg: var(--cn-text);
+    --torrent-tag-hover-bg: var(--cn-surface-3);
+
+    /* Cards, posts, chat */
+    --mediahub-card-bg: var(--cn-surface-1);
+    --mediahub-card-fg: var(--cn-text-2);
+    --mediahub-card-hover-fg: var(--cn-text);
+    --mediahub-card-border: 1px solid var(--cn-border);
+    --mediahub-card-border-radius: var(--cn-radius);
+    --mediahub-card-box-shadow: var(--cn-shadow);
+
+    --user-stat-card-bg: var(--cn-surface-1);
+    --user-stat-card-fg: var(--cn-text-2);
+    --user-stat-card-border: 1px solid var(--cn-border);
+    --user-stat-card-border-radius: var(--cn-radius);
+    --user-stat-card-box-shadow: var(--cn-shadow);
+
+    --article-card-bg: var(--cn-surface-1);
+    --article-card-fg: var(--cn-text-2);
+    --article-card-head-fg: var(--cn-text);
+    --article-card-time-fg: var(--cn-text-3);
+
+    --post-bg: var(--cn-surface-2);
+    --post-fg: var(--cn-text);
+    --post-shadow: var(--cn-shadow);
+    --post-head-bg: transparent;
+    --post-head-fg: var(--cn-text-3);
+    --post-aside-bg: rgba(0, 0, 0, 0.22);
+    --post-aside-fg: var(--cn-text-3);
+    --post-footer-fg: var(--cn-text-3);
+    --post-toolbar-bg: transparent;
+    --post-toolbar-fg: var(--cn-text-3);
+    --post-toolbar-hover-bg: var(--cn-surface-2);
+    --post-toolbar-hover-fg: var(--cn-text);
+    --post-like-fg: var(--cn-green);
+    --post-dislike-fg: var(--cn-accent);
+
+    --chatbox-message-bg: var(--cn-surface-2);
+    --chatbox-users-bg: var(--cn-surface-1);
+    --chatbox-button-fg: var(--cn-text-3);
+    --chatbox-button-hover-fg: var(--cn-text);
+    --message-bubble-bg: var(--cn-surface-2);
+    --message-bubble-fg: var(--cn-text);
+
+    --dialog-bg: var(--cn-surface-1);
+    --dialog-fg: var(--cn-text);
+    --dialog-head-bg: var(--cn-surface-1);
+    --dialog-head-fg: var(--cn-text);
+    --dialog-border: 1px solid var(--cn-border);
+    --dialog-border-radius: var(--cn-radius);
+    --dialog-box-shadow: var(--cn-shadow-pop);
+
+    --alert-bg: var(--cn-surface-2);
+    --alert-fg: var(--cn-text-2);
+
+    --paginate-bg: var(--cn-surface-1);
+    --paginate-bg-hover: var(--cn-surface-3);
+    --paginate-bg-current: var(--cn-accent);
+    --paginate-fg: var(--cn-text-2);
+    --paginate-fg-disabled: var(--cn-text-3);
+    --paginate-border-radius: 9px;
+
+    --quick-search-bg: var(--cn-surface-2);
+    --quick-search-fg: var(--cn-text-2);
+    --quick-search-border: 1px solid var(--cn-border);
+    --quick-search-border-radius: var(--cn-radius-sm);
+    --quick-search-box-shadow: var(--cn-shadow-pop);
+    --quick-search-result-bg: var(--cn-surface-2);
+    --quick-search-result-fg: var(--cn-text-2);
+    --quick-search-result-hover-bg: var(--cn-surface-3);
+    --quick-search-result-hover-fg: var(--cn-text);
+    --quick-search-result-year-fg: var(--cn-text-3);
+    --quick-search-selector-fg: var(--cn-text-3);
+    --quick-search-selector-hover-bg: var(--cn-surface-3);
+    --quick-search-selector-hover-fg: var(--cn-text);
+    --quick-search-selector-selected-bg: var(--cn-accent-soft);
+    --quick-search-selector-selected-fg: var(--cn-accent-hover);
+
+    --footer-bg: transparent;
+    --footer-hr-fg: var(--cn-border);
+    --notification-unread: var(--cn-accent);
+}
+
+/* Base */
+
+html,
+body {
+    font-family: var(--cn-font);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background:
+        radial-gradient(1200px 500px at 50% -200px, rgba(143, 29, 34, 0.22), transparent 70%),
+        var(--cn-bg) fixed;
+    color: var(--cn-text);
+    accent-color: var(--cn-accent);
+}
+
+::selection {
+    background: rgba(229, 72, 77, 0.35);
+    color: #fff;
+}
+
+a {
+    color: var(--cn-accent-hover);
+    transition: color 120ms ease;
+}
+
+a:hover {
+    color: #ff9295;
+}
+
+:focus-visible {
+    outline: 2px solid var(--cn-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+hr {
+    border-top: 1px solid var(--cn-border);
+}
+
+.text-muted {
+    color: var(--cn-text-3);
+}
+
+/* Nav bars: frosted glass that stays put while scrolling */
+
+.top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: saturate(140%) blur(12px);
+    -webkit-backdrop-filter: saturate(140%) blur(12px);
+}
+
+/* Thin crimson line along the bottom of the top bar */
+.top-nav::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(229, 72, 77, 0.55) 50%, transparent);
+    pointer-events: none;
+}
+
+.secondary-nav {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.nav-tab__link,
+.nav-tab--active__link {
+    font-weight: 500;
+    transition: color 120ms ease;
+}
+
+.nav-tab__link:hover {
+    filter: none;
+}
+
+.nav-tab--active__link {
+    color: var(--cn-text);
+    text-underline-offset: 8px;
+}
+
+/* Panels */
+
+.panelV2 {
+    overflow: clip;
+}
+
+.panel__header,
+.panel__heading {
+    border-bottom: 1px solid var(--cn-border);
+}
+
+.panel__header > .panel__heading {
+    border-bottom: none;
+}
+
+.panel__heading {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    padding: 14px 18px;
+}
+
+.panel__body {
+    padding: 18px;
+}
+
+/* Forms */
+
+.form__fieldset {
+    padding: 12px 16px 14px;
+}
+
+.form__legend {
+    font-size: 11px !important;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0 6px;
+}
+
+.form__label--floating {
+    background-color: var(--cn-surface-1);
+}
+
+.form__text,
+.form__textarea,
+.form__select {
+    background-color: var(--cn-bg);
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.form__text:focus,
+.form__textarea:focus,
+.form__select:focus {
+    box-shadow: 0 0 0 3px var(--cn-accent-soft);
+}
+
+.form__select option {
+    background-color: var(--cn-surface-2);
+    color: var(--cn-text);
+}
+
+.form__checkbox,
+.form__radio {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    vertical-align: -3px;
+    cursor: pointer;
+}
+
+.form__group:has(> .form__label > .form__checkbox) {
+    margin: 2px 0;
+}
+
+.form__group > .form__label:has(> .form__checkbox) {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 8px;
+    border-radius: 7px;
+    cursor: pointer;
+    color: var(--cn-text-2);
+    transition: background-color 120ms ease, color 120ms ease;
+}
+
+.form__group > .form__label:has(> .form__checkbox):hover {
+    background-color: var(--cn-surface-2);
+    color: var(--cn-text);
+}
+
+.form__button {
+    font-weight: 600;
+    transition: background-color 150ms ease, box-shadow 150ms ease, transform 80ms ease;
+}
+
+.form__button--filled:hover {
+    background-color: var(--cn-accent-hover);
+    box-shadow: 0 6px 18px -6px var(--cn-glow);
+}
+
+.form__button:active {
+    transform: translateY(1px);
+}
+
+/* Forum and topic listings */
+
+.subforum-listings__item,
+.topic-listings__item {
+    transition: background-color 120ms ease;
+}
+
+.subforum-listings__item:hover,
+.topic-listings__item:hover {
+    background-color: rgba(229, 72, 77, 0.05);
+}
+
+.subforum-listing,
+.topic-listing {
+    padding: 12px 14px;
+}
+
+.subforum-listing__figure,
+.topic-listing__figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subforum-listing__icon {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    font-size: 16px;
+    color: var(--cn-accent);
+    background-color: var(--cn-accent-soft);
+}
+
+.subforum-listing__link {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.subforum-listing__description {
+    color: var(--cn-text-3);
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+.topic-listing__heading a {
+    color: var(--cn-text);
+    font-weight: 500;
+}
+
+.topic-listing__heading a:hover {
+    color: var(--cn-accent-hover);
+}
+
+/* Counts: big number, small label */
+.subforum-listing__topic-stats dd,
+.subforum-listing__post-stats dd,
+.topic-listing__post-stats dd,
+.topic-listing__view-stats dd {
+    color: var(--cn-text);
+    font-size: 14px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.subforum-listing__topic-stats dt,
+.subforum-listing__post-stats dt,
+.topic-listing__post-stats dt,
+.topic-listing__view-stats dt {
+    color: var(--cn-text-3);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* Latest post: title in light text, date and author muted, red only on hover */
+.subforum-listing__latest-heading,
+.subforum-listing__latest-heading a {
+    color: var(--cn-text);
+    font-weight: 500;
+}
+
+.subforum-listing__latest-datetime,
+.subforum-listing__latest-datetime a,
+.subforum-listing__latest-author,
+.subforum-listing__latest-author a,
+.topic-listing__created-datetime,
+.topic-listing__created-datetime a,
+.topic-listing__created-author,
+.topic-listing__created-author a,
+.topic-listing__latest-datetime,
+.topic-listing__latest-datetime a,
+.topic-listing__latest-author,
+.topic-listing__latest-author a {
+    color: var(--cn-text-3);
+    font-size: 13px;
+}
+
+.subforum-listing__latest-heading a:hover,
+.subforum-listing__latest-datetime a:hover,
+.subforum-listing__latest-author a:hover,
+.topic-listing__created-datetime a:hover,
+.topic-listing__created-author a:hover,
+.topic-listing__latest-datetime a:hover,
+.topic-listing__latest-author a:hover,
+a.subforum-listing__latest-datetime:hover,
+a.topic-listing__latest-datetime:hover {
+    color: var(--cn-accent-hover);
+}
+
+/* Forum posts: each post is its own card */
+
+.topic-posts {
+    row-gap: 16px;
+}
+
+.post {
+    border: 1px solid var(--cn-border);
+}
+
+.post__aside {
+    min-width: 180px;
+    padding: 16px;
+    border-right: 1px solid var(--cn-border);
+}
+
+.post__avatar {
+    box-shadow: 0 0 0 1px var(--cn-border-strong);
+}
+
+.post__author {
+    margin-top: 4px;
+    font-weight: 600;
+}
+
+.post__author-title {
+    margin: 4px 0 10px;
+    color: var(--cn-text-2);
+    font-style: italic;
+}
+
+.post__author-join,
+.post__author-topics,
+.post__author-posts {
+    padding: 3px 0;
+    font-size: 12px;
+}
+
+.post__author-join dt,
+.post__author-topics dt,
+.post__author-posts dt,
+.post__author-topics a,
+.post__author-posts a {
+    color: var(--cn-text-3);
+}
+
+.post__author-join dd,
+.post__author-topics dd,
+.post__author-posts dd,
+.post__author-topics dd a,
+.post__author-posts dd a {
+    color: var(--cn-text-2);
+    font-variant-numeric: tabular-nums;
+}
+
+.post__author-topics a:hover,
+.post__author-posts a:hover {
+    color: var(--cn-accent-hover);
+}
+
+.post__header {
+    min-height: 42px;
+    padding-left: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.post__datetime,
+.post__datetime a {
+    color: var(--cn-text-3);
+}
+
+.post__toolbar {
+    border-radius: 0;
+}
+
+.post__content {
+    padding: 18px 22px 22px;
+    font-size: 14.5px;
+    line-height: 1.65;
+}
+
+.post__footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 12px 22px;
+}
+
+@media screen and (max-width: 576px) {
+    .post__aside {
+        min-width: 0;
+        padding: 10px 14px;
+        border-right: none;
+        border-bottom: 1px solid var(--cn-border);
+    }
+
+    .post__header {
+        padding-left: 14px;
+    }
+
+    .post__content {
+        padding: 14px;
+    }
+}
+
+/* Tables */
+
+.data-table th {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--cn-text-3);
+}
+
+.data-table tbody tr {
+    transition: background-color 100ms ease;
+}
+
+/* Cards */
+
+.torrent-card,
+.user-card,
+.post,
+.article-preview,
+.torrent-search--grouped__result {
+    border-radius: var(--cn-radius);
+}
+
+.torrent-card,
+.torrent-search--grouped__result {
+    border: 1px solid var(--cn-border);
+    transition: border-color 150ms ease, transform 150ms ease;
+}
+
+.torrent-card:hover,
+.torrent-search--grouped__result:hover {
+    border-color: var(--cn-border-strong);
+}
+
+/* Badges */
+
+.badge-user,
+.badge-extra {
+    border-radius: 6px;
+}
+
+.badge-extra {
+    border-color: var(--cn-border-strong);
+}
+
+/* Pagination */
+
+.pagination__link,
+.pagination__current {
+    border-radius: 9px;
+}
+
+.pagination__current {
+    color: #fff;
+}
+
+/* Chat */
+
+.chatbox-message {
+    border-radius: 14px 14px 14px 4px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.chatbox-message:before {
+    display: none;
+}
+
+.chatbox-message__avatar {
+    border-radius: 50%;
+    border-width: 1.5px;
+}
+
+.chatbox-message__time {
+    color: var(--cn-text-3);
+    font-variant-numeric: tabular-nums;
+}
+
+.chatbox-message__content {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--cn-text);
+}
+
+.chatbox__tab {
+    border-radius: 8px 8px 0 0;
+}
+
+/* Chat action buttons (reply / DM / gift) and the react button:
+   quiet grey icons that only appear when hovering a message */
+.chatbox-message .u3d-action-bar {
+    display: inline-flex;
+    gap: 2px;
+    margin-left: 4px;
+}
+
+.chatbox-message .u3d-action-bar .u3d-action-btn,
+.chatbox-message .dv-reaction-add .dv-reaction-add__btn {
+    align-items: center;
+    justify-content: center;
+    width: 26px !important;
+    height: 26px !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 7px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: var(--cn-text-3) !important;
+    font-size: 12px !important;
+    cursor: pointer;
+    transition: background-color 120ms ease, color 120ms ease;
+}
+
+.chatbox-message .u3d-action-bar .u3d-action-btn:hover,
+.chatbox-message .dv-reaction-add .dv-reaction-add__btn:hover {
+    background: var(--cn-surface-3) !important;
+    color: var(--cn-text) !important;
+}
+
+.chatbox-message .u3d-action-bar .u3d-action-btn--dm:hover {
+    color: var(--cn-accent-hover) !important;
+}
+
+.chatbox-message .u3d-action-bar .u3d-action-btn--gift:hover {
+    color: var(--cn-amber) !important;
+}
+
+@media (hover: hover) {
+    .chatbox-message .u3d-action-bar,
+    .chatbox-message .dv-reaction-add__btn {
+        opacity: 0;
+        transition: opacity 120ms ease;
+    }
+
+    .chatbox-message:hover .u3d-action-bar,
+    .chatbox-message:hover .dv-reaction-add__btn,
+    .chatbox-message:focus-within .dv-reaction-add__btn {
+        opacity: 1;
+    }
+}
+
+.chatbox-message .dv-reaction-picker {
+    background: var(--cn-surface-2) !important;
+    border: 1px solid var(--cn-border) !important;
+    border-radius: var(--cn-radius-sm) !important;
+    box-shadow: var(--cn-shadow-pop) !important;
+}
+
+/* Reaction pills under a message */
+.chatbox-message .dv-reaction {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border: 1px solid var(--cn-border-strong);
+    border-radius: 999px;
+    background: var(--cn-surface-3);
+    color: var(--cn-text-2);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.chatbox-message .dv-reaction--mine {
+    border-color: rgba(229, 72, 77, 0.5);
+    background: var(--cn-accent-soft);
+    color: var(--cn-text);
+}
+
+/* Quoted message when replying */
+.chatbox-message__reply {
+    border-left: 2px solid var(--cn-accent);
+    border-radius: 0 8px 8px 0;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 4px 10px;
+    margin-bottom: 6px;
+    cursor: pointer;
+}
+
+.chatbox-message__reply-author {
+    color: var(--cn-text-2);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.chatbox-message__reply-text {
+    color: var(--cn-text-3);
+    font-size: 13px;
+}
+
+.chatbox-message__irc-badge {
+    padding: 1px 6px;
+    margin-right: 4px;
+    border-radius: 999px;
+    background: var(--cn-surface-3);
+    color: var(--cn-text-3);
+    font-size: 10px;
+    font-weight: 500;
+}
+
+/* Key-value lists (profile sidebars, stats) */
+
+.key-value dt a {
+    color: var(--cn-text-2);
+}
+
+.key-value dt a:hover {
+    color: var(--cn-accent-hover);
+    text-decoration: none;
+}
+
+.key-value dd {
+    color: var(--cn-text);
+    font-variant-numeric: tabular-nums;
+}
+
+abbr[title] {
+    text-decoration: underline dotted var(--cn-text-3);
+    text-underline-offset: 3px;
+}
+
+/* Rendered BBCode (rules, posts, descriptions, profiles) */
+
+.bbcode-rendered.bbcode-rendered h1,
+.bbcode-rendered.bbcode-rendered h2,
+.bbcode-rendered.bbcode-rendered h3 {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.bbcode-rendered.bbcode-rendered h1,
+.bbcode-rendered.bbcode-rendered h2 {
+    padding-bottom: 10px;
+}
+
+.bbcode-rendered.bbcode-rendered li::marker {
+    color: var(--cn-accent);
+}
+
+.bbcode-rendered.bbcode-rendered blockquote {
+    border-radius: 0 8px 8px 0;
+}
+
+/* Swap BBCode's pure "red" for the skin's crimson so it doesn't glare */
+.bbcode-rendered [style*='color: red'],
+.bbcode-rendered [style*='color:red'],
+.bbcode-rendered [style*='#ff0000' i],
+.bbcode-rendered [style*='#f00;' i] {
+    color: var(--cn-accent) !important;
+}
+
+/* Scrollbars */
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--cn-border-strong) transparent;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--cn-border-strong);
+    border: 2px solid var(--cn-bg);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #57474a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
+
+/* Clear artwork: TMDB header art on torrent pages shows unblurred */
+
+:root {
+    --meta-backdrop-filter: none;
+}
+
+.meta__backdrop {
+    filter: none;
+}
+
+/* Keeps the title, description and details readable over bright artwork */
+.meta {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9), 0 0 12px rgba(0, 0, 0, 0.6);
+}
